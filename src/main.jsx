@@ -4,7 +4,9 @@ import ReactDOM from 'react-dom/client';
 // import CardsGallery from './components/CardsGallery/CardsGallery.jsx';
 // import Counter from './components/Counter/Counter.jsx';
 // import Message from './components/Message/Message.jsx';
-import Form from './components/Form/Form.jsx';
+// import Form from './components/Form/Form.jsx';
+// import Formv2 from './components/Form/Formv2.jsx';
+import Formv3 from './components/Form/Formv3.jsx';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
@@ -16,6 +18,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     {/* <CardsGallery /> */}
     {/* <Counter /> */}
     {/* <Message /> */}
-    <Form />
+    {/* <Form /> */}
+    {/* <Formv2 /> */}
+    <Formv3 />
   </React.StrictMode>
 );

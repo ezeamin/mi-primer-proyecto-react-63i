@@ -1,26 +1,33 @@
 import { useState } from 'react';
 
-const Form = () => {
-  const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
-  const [email, setEmail] = useState('');
+const Formv2 = () => {
+  const [formState, setFormState] = useState({
+    name: '',
+    phone: '',
+    email: '',
+  });
 
-  const handleChangeName = (e) => {
-    setName(e.target.value);
-  };
+  const handleChange = (e) => {
+    const { name, value } = e.target;
 
-  const handleChangePhone = (e) => {
-    setPhone(e.target.value);
-  };
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
 
-  const handleChangeEmail = (e) => {
-    setEmail(e.target.value);
+    /*
+    {
+      name: '',   |
+      phone: '',  |   ...formState
+      email: 'hola@gmail.com'
+    }
+    */
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log(name, phone, email);
+    console.log(formState);
   };
 
   return (
@@ -32,9 +39,10 @@ const Form = () => {
         <input
           type='text'
           id='name-input'
-          value={name}
+          name='name'
+          value={formState.name}
           className='form-control'
-          onChange={handleChangeName}
+          onChange={handleChange}
         />
       </fieldset>
       <fieldset className='mt-2'>
@@ -44,9 +52,10 @@ const Form = () => {
         <input
           type='tel'
           id='phone-input'
-          value={phone}
+          name='phone'
+          value={formState.phone}
           className='form-control'
-          onChange={handleChangePhone}
+          onChange={handleChange}
         />
       </fieldset>
       <fieldset className='mt-2'>
@@ -56,13 +65,16 @@ const Form = () => {
         <input
           type='email'
           id='email-input'
-          value={name}
+          name='email'
+          value={formState.email}
           className='form-control'
-          onChange={handleChangeEmail}
+          onChange={handleChange}
         />
       </fieldset>
-      <button type='submit' className='btn btn-danger mt-3'>Enviar</button>
+      <button type='submit' className='btn btn-danger mt-3'>
+        Enviar
+      </button>
     </form>
   );
 };
-export default Form;
+export default Formv2;
