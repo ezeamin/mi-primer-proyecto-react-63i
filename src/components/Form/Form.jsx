@@ -56,7 +56,7 @@ const Form = () => {
         <input
           type='email'
           id='email-input'
-          value={name}
+          value={email}
           className='form-control'
           onChange={handleChangeEmail}
         />

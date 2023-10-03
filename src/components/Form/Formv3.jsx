@@ -1,35 +1,15 @@
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 
-import List from './List';
 import { getRandomNumber } from '../../helpers/helpers';
 
-const Formv3 = () => {
-  const [contacts, setContacts] = useState([]);
+import { isValidDataContacts } from '../../helpers/validators';
+
+const Formv3 = (props) => {
+  const { setContacts } = props;
 
   const nameRef = useRef();
   const phoneRef = useRef();
   const emailRef = useRef();
-
-  const isValidData = (name, phone, email) => {
-    // name
-    if (name.trim().length < 2) {
-      return false;
-    }
-
-    // phone
-    if (isNaN(Number(phone))) {
-      return false;
-    }
-
-    // email
-    const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (!regex.test(email)) {
-      return false;
-    }
-
-    // todo ok
-    return true;
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -38,10 +18,14 @@ const Formv3 = () => {
     const phone = phoneRef.current.value;
     const email = emailRef.current.value;
 
-    if (isValidData(name, phone, email)) {
+    if (isValidDataContacts(name, phone, email)) {
       alert('Felicidades!');
-      setContacts([
-        ...contacts,
+
+      // setValue(valorNuevo)
+      // setValue((valorAnterior) => valorNuevo)
+      
+      setContacts((prev)=>[
+        ...prev,
         {
           id: getRandomNumber(0, 500),
           name: name,
@@ -64,7 +48,6 @@ const Formv3 = () => {
           ref={nameRef}
           type='text'
           id='name-input'
-          name='name'
           className='form-control'
         />
       </fieldset>
@@ -76,7 +59,6 @@ const Formv3 = () => {
           ref={phoneRef}
           type='tel'
           id='phone-input'
-          name='phone'
           className='form-control'
         />
       </fieldset>
@@ -88,14 +70,12 @@ const Formv3 = () => {
           ref={emailRef}
           type='email'
           id='email-input'
-          name='email'
           className='form-control'
         />
       </fieldset>
       <button type='submit' className='btn btn-danger mt-3'>
         Enviar
       </button>
-      <List contacts={contacts} />
     </form>
   );
 };

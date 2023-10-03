@@ -19,6 +19,7 @@ const Formv2 = () => {
     {
       name: '',   |
       phone: '',  |   ...formState
+    //email: '',  |
       email: 'hola@gmail.com'
     }
     */
