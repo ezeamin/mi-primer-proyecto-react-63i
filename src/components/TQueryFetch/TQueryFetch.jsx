@@ -3,24 +3,7 @@ import { useMutation, useQuery } from '@tanstack/react-query';
 import { getRandomNumber } from '../../helpers/helpers';
 import { toast } from 'sonner';
 
-const URL = import.meta.env.VITE_TODOS_URL;
-
-// GET, POST, PUT/PATCH, DELETE
-const getTodos = async () => {
-  const response = await fetch(URL);
-  const data = await response.json();
-
-  return data;
-};
-
-const postTodo = async (body) => {
-  const response = await fetch(URL, {
-    method: 'POST',
-    body: JSON.stringify(body),
-  });
-
-  if (!response.ok) throw new Error("Ocurrio un error");
-};
+import { getTodos, postTodo } from '../../endpoints/endpoints';
 
 // Cuando cargue el componente, cargue los datos (es decir, haga el llamado)
 // "Query"!!!!
