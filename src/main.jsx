@@ -8,7 +8,8 @@ import ReactDOM from 'react-dom/client';
 // import Formv2 from './components/Form/Formv2.jsx';
 // import Formv3 from './components/Form/Formv3.jsx';
 // import Contactos from './components/Contactos/Contactos.jsx';
-import HookForm from './components/Form/HookForm.jsx';
+// import HookForm from './components/Form/HookForm.jsx';
+import NormalFetch from './components/NormalFetch/NormalFetch.jsx';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
@@ -24,6 +25,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     {/* <Formv2 /> */}
     {/* <Formv3 /> */}
     {/* <Contactos /> */}
-    <HookForm></HookForm>
+    {/* <HookForm /> */}
+    <NormalFetch />
   </React.StrictMode>
 );
