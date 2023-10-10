@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
-import Formv3 from '../Form/Formv3';
-import List from '../Form/List';
+import Formv3 from '../components/Form/Formv3';
+import List from '../components/Form/List';
 
 const contactosLS = JSON.parse(localStorage.getItem('contactos')) || [];
 
